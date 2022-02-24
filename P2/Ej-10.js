@@ -1,4 +1,4 @@
-console.log("Ejecutnado JS...");
+console.log("Ejecutando JS...");
 
 //-- Obtener el párrafo
 const test = document.getElementById('test');
