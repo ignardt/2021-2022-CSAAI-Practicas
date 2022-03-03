@@ -1,0 +1,94 @@
+body{
+    background-image:url(Rafa-fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;    
+}
+
+@font-face{
+    font-family: Annifont;
+    src: url('Annifont.ttf') 
+}
+
+.Titulo{
+width: 40%;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+padding: 2px;
+text-align: center;
+background-color:white;opacity: 0.8;
+font-family: Annifont;
+color: black;
+border-radius: 15px;
+}
+
+.titulos{
+font-family: 'Trebuchet MS';
+text-align: center;
+color: rgb(253, 147, 230);
+}
+
+.izquierda1{
+background-color: white;
+margin: 50px;
+width: 20%;
+color: black;
+opacity: 0.7;
+text-align: left;
+padding: 15px;
+padding-top: 1px;
+float: left;
+border-radius: 10px;
+}
+
+.izquierda1 li{
+margin: 10px;
+}
+
+.derecha1{
+float: right;
+width: 50%;
+margin: 30px;
+margin-right: 40px;
+color: blanchedalmond;
+}
+
+.derecha2{
+float: left;
+width: 20%;
+margin: 100px;
+margin-top: 130px;
+}
+
+li::marker{
+color: aqua;
+
+}
+
+.lista2 li{
+margin: 10px;
+}
+
+.lista2 {
+margin-left: 20px;
+}
+
+.lista1 li{
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+i{
+color: rgb(253, 249, 184);
+}
+
+a:link {
+    color: rgb(247, 187, 57);
+}
+  a:visited {
+    color:rgb(253, 147, 230) ;
+}
+    
+#datos {
+text-align: center;
+}
