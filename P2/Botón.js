@@ -4,6 +4,6 @@ const test = document.getElementById('test')
 
 //-- Configurar el manejador para el evento de
 //-- pulsación de botón
-test.onclick = () => {
+GamepadButton.onclick = function () {
   console.log("Botón pulsado")
 }
