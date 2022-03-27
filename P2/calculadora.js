@@ -11,7 +11,7 @@ raiz = document.getElementById("raizcuadrada");
 
 // Leemos los numeros 
 
-for (i = 0; i < numeros.length; i++){ 
+for (i = 0; i < numeros.length; i++) { 
 numeros[i].onclick = (ev) => {
 digitos(ev.target.value);} 
 }
