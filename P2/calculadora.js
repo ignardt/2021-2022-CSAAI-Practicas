@@ -11,14 +11,14 @@ raiz = document.getElementById("raizcuadrada");
 
 // Leemos los numeros 
 
-for (i = 0; i<numeros.length; i++){ 
+for (i = 0; i < numeros.length; i++){ 
 numeros[i].onclick = (ev) => {
 digitos(ev.target.value);} 
 }
 
 // Leemos las operaciones
 
-for (i = 0; i<operaciones.length; i++) {
+for (i = 0; i < operaciones.length; i++) {
 operaciones[i].onclick = (ev) => {
 operadores(ev.target.value);}    
 }
