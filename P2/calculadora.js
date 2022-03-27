@@ -8,7 +8,6 @@ reset = document.getElementById("reset")
 resultado = document.getElementById("resultado")
 borrar = document.getElementById("del")
 raiz = document.getElementById("raizcuadrada")
-sumatorio = document.getElementById("ans")
 
 // Leemos los numeros 
 
@@ -63,6 +62,8 @@ function operadores(operaciones) {
     }
 }
 
+// Función de igual
+
 resultado.onclick = () => {
 resul = 0;
 if (estado == ESTADO.OP2) {
@@ -92,7 +93,7 @@ borrar.onclick = () => {
 
 // Función de raíz
 
-raiz.onclick = () => { // Detectamos el click en la raiz
-    display.innerHTML = Math.sqrt(display.innerHTML); // Realizamos la raiz del numero que se encuentra en el display
+raiz.onclick = () => { 
+    display.innerHTML = Math.sqrt(display.innerHTML); 
 }
 
