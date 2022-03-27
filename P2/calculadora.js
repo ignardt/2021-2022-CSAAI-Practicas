@@ -1,24 +1,24 @@
 
 // Introducimos las variables de html en nuestro javascript para que pueda leerlas
 
-display = document.getElementById("display")
-numeros = document.getElementsByClassName("numero")
-operaciones = document.getElementsByClassName("operador")
-reset = document.getElementById("reset")
-resultado = document.getElementById("resultado")
-borrar = document.getElementById("del")
-raiz = document.getElementById("raizcuadrada")
+display = document.getElementById("display");
+numeros = document.getElementsByClassName("numero");
+operaciones = document.getElementsByClassName("operador");
+reset = document.getElementById("reset");
+resultado = document.getElementById("resultado");
+borrar = document.getElementById("del");
+raiz = document.getElementById("raizcuadrada");
 
 // Leemos los numeros 
 
-for (i=0; i<numeros.length; i++){ 
+for (i = 0; i<numeros.length; i++){ 
 numeros[i].onclick = (ev) => {
 digitos(ev.target.value);} 
 }
 
 // Leemos las operaciones
 
-for (i=0; i<operaciones.length; i++) {
+for (i = 0; i<operaciones.length; i++) {
 operaciones[i].onclick = (ev) => {
 operadores(ev.target.value);}    
 }
