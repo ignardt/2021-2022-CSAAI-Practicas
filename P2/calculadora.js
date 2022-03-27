@@ -75,8 +75,8 @@ if (estado == ESTADO.OP2) {
 // Función de borrar todo
 
 reset.onclick = () => {
-    display.innerHTML = 0; // Imprimimos por el display el valor 0
-    estado = ESTADO.INIT; // Como reseteamos volvemos al estado inicial
+    display.innerHTML = null; 
+    estado = ESTADO.INIT; 
 }
 
 // Función de borrar solo un dígito

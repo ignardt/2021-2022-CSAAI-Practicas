@@ -1,5 +1,5 @@
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:sans-serif;
     
 }
 .container {
@@ -45,7 +45,7 @@ button:active {
 .pantalla {
 
     height: 100px;
-    background-color: black;
+    background-color: #363636;
     border-radius: 32px;
     display: flex;
     margin: 5px 20px 15px 20px;
