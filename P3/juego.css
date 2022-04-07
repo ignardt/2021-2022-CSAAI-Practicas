@@ -6,12 +6,12 @@ canvas{
 
     border-style: solid;
     border-color: black;
-    border-width: 2px;
+    border-width: 3px;
     border-radius: 5px;
     margin-top: 2%;
-    
-    margin-left: 31.5%;
+    margin-left: 600px;
 }
+
 h1{
 
     text-align: center;
@@ -19,3 +19,39 @@ h1{
     font-family: 'Times New Roman', Times, serif;
     margin-top: 50px;
 }
+
+#gameover{
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 600px;
+    border-radius: 5px;
+    width : 706px;
+    height: 656px;
+    background: rgba(0,0,0,0.8);
+    display: none;
+}
+
+#youwon{
+    width: 100px;
+    position: absolute;
+    top : 200px;
+    left : 150px;
+    display: none;
+}
+
+#youlose{
+    width:400px;
+    position: absolute;
+    top: 100px;
+    left : 0px;
+    display: none;
+}
+
+#restart{
+        position: absolute;
+        top: 310px;
+        left : 155px;
+        cursor: pointer;
+        font-size: 1.25em;
+        color : #FFF;
+    }
