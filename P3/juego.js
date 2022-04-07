@@ -70,9 +70,10 @@ const ball = {
     x : cvs.width/2,
     y : paddle.y - BALL_RADIUS,
     radius : BALL_RADIUS,
-    speed : 4,
-    dx : 3 * (Math.random() * 2 - 1),
-    dy : -3
+    speed : 0,
+    dx : 0,
+    dy : 0,
+    
 }
 
 // DRAW THE BALL
@@ -87,6 +88,19 @@ function drawBall(){
     ctx.stroke();
     
     ctx.closePath();
+}
+
+// Para empezar la partida debemos pulsar la tecla espacio
+
+document.addEventListener("keyup", keyUpHandler, false);
+
+function keyUpHandler(e) {
+    if(e.keyCode == 32){
+        console.log("ENTRA EN ESPACIO");
+        ball.speed = 4;
+        ball.dx =  3 * (Math.random() * 2 - 1);
+        ball.dy = -3;
+    }
 }
 
 // MOVE THE BALL
@@ -149,7 +163,7 @@ function draw(){
 function update(){
     movePaddle();
     
-    moveBall();
+    moveBall()
     
     ballWallCollision();
     
