@@ -186,8 +186,8 @@ function ballPaddleCollision(){
 
 // CREATE THE BRICKS
 const brick = {
-    row : 1,
-    column : 1,
+    row : 3,
+    column : 9,
     width : 55,
     height : 20,
     offSetLeft : 20,
