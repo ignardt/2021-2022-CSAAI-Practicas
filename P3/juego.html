@@ -10,6 +10,31 @@
 </head>
 <body>
     <h1>Breakout</h1>
+
+    <div>
+        <div id="caja">
+            <button id="btn_inst">Instrucciones</button>
+            <br><br>
+            <button id="button_play">Play</button>            
+            <br><br>
+            <label for="level">Level:</label>
+            <select id="level">
+                <option class="opt" value="Easy" selected>Easy</option>
+                <option class="opt" value="Difficult">Difficult</option>
+            </select>            
+        </div>
+        <div id="man" class="manual">
+            <span id="close">&#10006;</span></i>
+            <h2>Instrucciones:</h2>
+            <p>Elimina todos los ladrillos para ganar.</p>
+            <p>Pulsa botón <strong>Play</strong> o tecla <strong>espacio [space]</strong> para empezar.</p>
+            <p>Pulsa tecla <strong>izquierda <span>&#8592;</span></strong> y<strong> derecha <span>&#8594;</span></strong> para mover la raqueta.</p>
+            <p>Seleccionar el nivel: <strong>Easy</strong> o <strong>Difficult</strong> *[Easy: Pordefecto]</p>
+            <hr><p>La puntuación varia según las filas.</p>
+            <p>El juego tiene un total de tres vidas.</p>
+        </div>
+    </div>
+    
     <div id="gameover">
         <img src="youwon.png" alt="" id="youwon">
         <img src="gameover.png" alt="" id="youlose">

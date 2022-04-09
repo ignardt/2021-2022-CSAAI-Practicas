@@ -1,6 +1,7 @@
 body{
 
-    background-color: rgb(46, 106, 146);
+    background-image: linear-gradient(to bottom left, #2424cfe8, #2db6b6);
+    background-attachment: fixed;
 }
 canvas{
 
@@ -18,6 +19,7 @@ h1{
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 50px;
+    font-weight: bold;
 }
 
 #gameover{
@@ -55,3 +57,57 @@ h1{
         font-size: 25px;
         color : #FFF;
     }
+
+
+#caja{ /*caja botones*/
+    position: fixed;
+    top: 10px;
+    left: 150px;
+    padding: 15px;
+    border: 3px solid rgb(120, 146, 230);
+    border-radius: 5px;
+}
+button{
+    padding: 10px;  
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: rgb(116, 218, 187);
+    border-radius: 3px;
+    background-color: rgb(116, 218, 187);
+    box-shadow: 0 4px #918d8de3;
+}
+button:active{
+    border: none;
+    box-shadow: 0 6px #918e8e;
+    transform: translateY(3px);
+}
+button[disabled]{background-color: rgb(138, 228, 223);color: #080808;}
+/*Nivel*/
+label{font-size: 1.2em;font-weight: bold; }
+select{
+    font-weight: bold;
+    background-color: rgb(116, 218, 187);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+/*estilo caja instrucciones*/
+.manual {
+    position: absolute;
+    background: rgb(224, 211, 211);
+    color: rgb(37, 35, 35);
+    font-family: 'Times New Roman', Times, serif;
+    width: 400px;
+    padding: 20px;
+    transform: translateX(-500px);
+    transition: transform 1s ease-in-out;
+    border-radius: 5px;
+    margin-left: 25px;
+    display: none;
+}
+.manual.show{transform: translateY(230px);}
+#btn_inst{cursor: pointer;}
+#close{float: right;font-size: 10px;cursor: pointer;}
+span{border: 2px solid black;border-radius: 5px;padding: 3px;font-size: 15px;font-weight: bold;}

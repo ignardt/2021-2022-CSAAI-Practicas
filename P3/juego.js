@@ -2,6 +2,12 @@
 const BG_IMG = new Image();
 BG_IMG.src = "fondo.jpg";
 
+const BG_IMG2 = new Image();
+BG_IMG2.src = "fondo2.jpg";
+
+const BG_IMG3 = new Image();
+BG_IMG3.src = "fondo3.jpg";
+
 const LEVEL_IMG = new Image();
 LEVEL_IMG.src = "level.png";
 
@@ -36,6 +42,13 @@ const SCORE_UNIT = 10;
 let LEVEL = 1;
 const MAX_LEVEL = 3;
 let GAME_OVER = false;
+
+const level_op=document.getElementById("level");
+const inst = document.getElementById('man');
+const btn_inst = document.getElementById('btn_inst');//botón instrucciones
+const close_inst = document.getElementById('close');
+let level;
+
 
 // CREATE THE PADDLE
 
@@ -75,7 +88,7 @@ document.addEventListener("keyup", function(event){
    }
 });
 
-// MOVE PADDLE
+// MOVIMIENTO DE LA RAQUETA
 
 function movePaddle(){
     if(rightArrow && paddle.x + paddle.width < cvs.width){
@@ -85,7 +98,7 @@ function movePaddle(){
     }
 }
 
-// CREATE THE BALL
+// CREAMOS LA BOLA
 
 const ball = {
     x : cvs.width/2,
@@ -97,7 +110,7 @@ const ball = {
     
 }
 
-// DRAW THE BALL
+// DIBUJAMOS LA BOLA
 
 function drawBall(){
     ctx.beginPath();
@@ -112,15 +125,39 @@ function drawBall(){
     ctx.closePath();
 }
 
+// SELECCIONAMOS EL NIVEL DE DIFICULTAD
+
+level_op.addEventListener("change", setlevel);
+
+function setlevel(){
+    level = level_op.options[level_op.selectedIndex].value;  
+}
+
+// BLOQUEAMOS EL BOTON DE SELECCIONAR DIFICULTAD SI YA HEMOS EMPEZADO UNA PARTIDA
+
+function noBoton() {
+    if (LIFE <= 2 || ball.speed > 0){
+        level_op.disabled = true;
+    }
+}
+
+
+
+
 // Para empezar la partida debemos pulsar la tecla espacio
 
 document.addEventListener("keyup", Sacarbola, false);
 
 function Sacarbola(e) {
-    if(e.keyCode == 32){
-        ball.speed = 4;
-        ball.dx =  3 * (Math.random() * 2 - 1);
-        ball.dy = -3;
+    if(e.keyCode == 32 && level == "Easy"){
+        ball.speed = 6;
+        ball.dx =  5 * (Math.random() * 2 - 1);
+        ball.dy = -5;
+    }
+    else if(e.keyCode == 32 && level == "Difficult"){
+        ball.speed = 12;
+        ball.dx =  10 * (Math.random() * 2 - 1);
+        ball.dy = -10;
     }
 }
 
@@ -186,8 +223,8 @@ function ballPaddleCollision(){
 
 // CREATE THE BRICKS
 const brick = {
-    row : 3,
-    column : 9,
+    row : 1,
+    column : 1,
     width : 55,
     height : 20,
     offSetLeft : 20,
@@ -270,6 +307,8 @@ function draw(){
 
     drawBricks();
 
+    setlevel()
+
     // SHOW SCORE
     showGameStats(SCORE, 40, 31, SCORE_IMG, 10, 10);
     // SHOW LIVES
@@ -316,6 +355,7 @@ function levelUp(){
 // UPDATE GAME FUNCTION
 
 function update(){
+    
     movePaddle();
     
     moveBall()
@@ -329,6 +369,8 @@ function update(){
     gameOver()
 
     levelUp()
+
+    noBoton()
 }
 
 // GAME LOOP
@@ -336,8 +378,15 @@ function update(){
 function loop(){
 
     // CLEAR THE CANVAS
+    if(LEVEL == 1){
     ctx.drawImage(BG_IMG, 0, 0);
-    
+    }
+         else if (LEVEL == 2){
+        ctx.drawImage(BG_IMG2, 0, 0);
+        }  
+            else if (LEVEL == 3){
+            ctx.drawImage(BG_IMG3, 0, 0);
+            }  
     draw();
     
     update();
@@ -370,6 +419,18 @@ function showYouWin(){
 function showYouLose(){
     gameover.style.display = "block";
     youlose.style.display = "block";
+}
+
+//botón instrucciones
+btn_inst.onclick= () =>{
+    inst.style.display = "block";
+    inst.classList.toggle('show');
+}
+
+
+//button cerrar instrucciones
+close_inst.onclick= () =>{
+    inst.classList.remove('show');
 }
 
 
