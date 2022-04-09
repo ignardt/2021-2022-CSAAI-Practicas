@@ -155,9 +155,9 @@ function Sacarbola(e) {
         ball.dy = -5;
     }
     else if(e.keyCode == 32 && level == "Difficult"){
-        ball.speed = 12;
-        ball.dx =  10 * (Math.random() * 2 - 1);
-        ball.dy = -10;
+        ball.speed = 10;
+        ball.dx =  8 * (Math.random() * 2 - 1);
+        ball.dy = -8;
     }
 }
 
