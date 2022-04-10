@@ -1,45 +1,47 @@
-// LOAD BG IMAGE
-const BG_IMG = new Image();
+// CARGAMOS LAS IMAGENES Y SONIDOS QUE VAMOS A UTILIZAR
+
+const BG_IMG = new Image(); // FONDO PRIMER NIVEL
 BG_IMG.src = "fondo.jpg";
 
-const BG_IMG2 = new Image();
+const BG_IMG2 = new Image(); // FONDO SEGUNDO NIVEL
 BG_IMG2.src = "fondo2.jpg";
 
-const BG_IMG3 = new Image();
+const BG_IMG3 = new Image(); // FONDO TERCER NIVEL
 BG_IMG3.src = "fondo3.jpg";
 
-const LEVEL_IMG = new Image();
+const LEVEL_IMG = new Image(); // ICONO NIVEL ACTUAL
 LEVEL_IMG.src = "level.png";
 
-const LIFE_IMG = new Image();
+const LIFE_IMG = new Image(); // ICONO VIDAS
 LIFE_IMG.src = "life.png";
 
-const SCORE_IMG = new Image();
+const SCORE_IMG = new Image(); // ICONO PUNTUACIÓN
 SCORE_IMG.src = "score.png";
 
+const LIFE_LOST = new Audio(); // SONIDO DE VIDA PERDIDA
+LIFE_LOST.src = "life_lost.mp3";
 
-// SELECT CANVAS ELEMENT
+const WIN = new Audio(); // SONIDO DE VICTORIA
+WIN.src = "win.mp3";
+
+
+// CARGAMOS EL CANVAS
+
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 
-// ADD BORDER TO CANVAS
-
-
-// MAKE LINE THIK WHEN DRAWING TO CANVAS
-
-
-// GAME VARIABLES AND CONSTANTS
+// VARIABLES Y CONSTANTES DEL JUEGO
 
 const PADDLE_WIDTH = 100;
 const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
 const BALL_RADIUS = 8;
-let LIFE = 3; // PLAYER HAS 3 LIVES
+let LIFE = 3; // VIDAS
 let leftArrow = false;
 let rightArrow = false;
-let SCORE = 0;
+let SCORE = 0; // PUNTUACIÓN
 const SCORE_UNIT = 10;
-let LEVEL = 1;
+let LEVEL = 1; // NIVEL
 const MAX_LEVEL = 3;
 let GAME_OVER = false;
 
@@ -50,7 +52,7 @@ const close_inst = document.getElementById('close');
 let level;
 
 
-// CREATE THE PADDLE
+// CREAMOS LA RAQUETA
 
 const paddle = {
     x : cvs.width/2 - PADDLE_WIDTH/2,
@@ -60,7 +62,7 @@ const paddle = {
     dx :4
 }
 
-// DRAW PADDLE
+// DIBUJAMOS LA RAQUETA
 
 function drawPaddle(){
     ctx.fillStyle = "white";
@@ -71,7 +73,7 @@ function drawPaddle(){
     ctx.lineWidth = 3;
 }
 
-// CONTROL THE PADDLE
+// CCONTROL DE LA RAQUETA
 
 document.addEventListener("keydown", function(event){
    if(event.keyCode == 37){
@@ -141,10 +143,7 @@ function noBoton() {
     }
 }
 
-
-
-
-// Para empezar la partida debemos pulsar la tecla espacio
+// PARA EMPEZAR LA PARTIDA PULSAMOS EL ESPACIO
 
 document.addEventListener("keyup", Sacarbola, false);
 
@@ -161,14 +160,14 @@ function Sacarbola(e) {
     }
 }
 
-// MOVE THE BALL
+// MOVIMIENTO DE LA BOLA
 
 function moveBall(){
     ball.x += ball.dx;
     ball.y += ball.dy;
 }
 
-// BALL AND WALL COLLISION DETECTION
+// COLISION DE LA BOLA CON LA PARED
 
 function ballWallCollision(){
     if(ball.x + ball.radius > cvs.width || ball.x - ball.radius < 0){
@@ -180,13 +179,14 @@ function ballWallCollision(){
     }
     
     if(ball.y + ball.radius > cvs.height){
-        LIFE--; // LOSE LIFE
+        LIFE--; // PERDEMOS UNA VIDA
         resetBall();
-        resetPaddle()
+        resetPaddle();
+        LIFE_LOST.play();
     }
 }
 
-// RESET THE BALL
+// RESETEAMOS LA BOLA A LA POSICIÓN INICIAL
 
 function resetBall(){
     ball.x = cvs.width/2;
@@ -196,32 +196,34 @@ function resetBall(){
     
 }
 
+// RESETEAMOS LA RAQUETA A LA POSICIÓN INICIAL
+
 function resetPaddle(){
     paddle.x = cvs.width/2 - PADDLE_WIDTH/2;
     paddle.y = cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT;
 }
 
-// BALL AND PADDLE COLLISION
+// COLISION DE LA BOLA CON LA RAQUETA
 
 function ballPaddleCollision(){
     if(ball.x < paddle.x + paddle.width && ball.x > paddle.x && ball.y + ball.radius > paddle.y){
         
-        // CHECK WHERE THE BALL HIT THE PADDLE
+        // COMRPROBAR DONDE LA BOLA IMPACTA EN LA RAQUETA
         let collidePoint = ball.x - (paddle.x + paddle.width/2);
         
-        // NORMALIZE THE VALUES
+        // NORMALIZAMOS LOS VALORES
         collidePoint = collidePoint / (paddle.width/2);
         
-        // CALCULATE THE ANGLE OF THE BALL
+        // CALCULAMOS EL ANGULO DE LA BOLA
         let angle = collidePoint * Math.PI/3;
-            
             
         ball.dx = ball.speed * Math.sin(angle);
         ball.dy = - ball.speed * Math.cos(angle);
     }
 }
 
-// CREATE THE BRICKS
+// CREAMOS LOS LADRILLOS
+
 const brick = {
     row : 1,
     column : 1,
@@ -251,12 +253,13 @@ function createBricks(){
 
 createBricks();
 
-// draw the bricks
+// DIBUJAMOS LOS LADRILLOS
+
 function drawBricks(){
     for(let r = 0; r < brick.row; r++){
         for(let c = 0; c < brick.column; c++){
             let b = bricks[r][c];
-            // if the brick isn't broken
+            // SI EL LADRILLO NO ESTA ROTO
             if(b.status){
                 ctx.fillStyle = brick.fillColor;
                 ctx.fillRect(b.x, b.y, brick.width, brick.height);
@@ -269,16 +272,17 @@ function drawBricks(){
 }
 
 
-// ball brick collision
+// COLISION DE LA BOLA CON LOS LADRILLOS
+
 function ballBrickCollision(){
     for(let r = 0; r < brick.row; r++){
         for(let c = 0; c < brick.column; c++){
             let b = bricks[r][c];
-            // if the brick isn't broken
+            // SI EL LADRILLO NO ESTA ROTO
             if(b.status){
                 if(ball.x + ball.radius > b.x && ball.x - ball.radius < b.x + brick.width && ball.y + ball.radius > b.y && ball.y - ball.radius < b.y + brick.height){
                     ball.dy = - ball.dy;
-                    b.status = false; // the brick is broken
+                    b.status = false; // EL LADRILLO ESTA ROTO
                     SCORE += SCORE_UNIT;
                 }
             }
@@ -286,18 +290,17 @@ function ballBrickCollision(){
     }
 }
 
-// show game stats
+// ESTADISTICAS DEL JUEGO
+
 function showGameStats(text, textX, textY, img, imgX, imgY){
-    // draw text
+
     ctx.fillStyle = "#FFF";
     ctx.font = "25px Germania One";
     ctx.fillText(text, textX, textY);
-    
-    // draw image
     ctx.drawImage(img, imgX, imgY, width = 25, height = 25);
 }
 
-// DRAW FUNCTION
+// FUNCION DE DIBUJAR
 
 function draw(){
     
@@ -309,15 +312,15 @@ function draw(){
 
     setlevel()
 
-    // SHOW SCORE
+    // MOSTRAR PUNTUACION
     showGameStats(SCORE, 40, 31, SCORE_IMG, 10, 10);
-    // SHOW LIVES
+    // MOSTRAR VIDAS
     showGameStats(LIFE, cvs.width - 25, 31, LIFE_IMG, cvs.width-55, 10); 
-    // SHOW LEVEL
+    // MOSTRAR NIVEL
     showGameStats(LEVEL, cvs.width/2, 31, LEVEL_IMG, cvs.width/2 - 30, 8);
 }
 
-// game over
+// GAME OVER
 function gameOver(){
     if(LIFE <= 0){
         showYouLose();
@@ -325,11 +328,11 @@ function gameOver(){
     }
 }
 
-// level up
+// SIGUIENTE NIVEL
 function levelUp(){
     let isLevelDone = true;
     
-    // check if all the bricks are broken
+    // COMPROBAR QUE TODOS LOS LADRILLOS ESTEN ROTOS
     for(let r = 0; r < brick.row; r++){
         for(let c = 0; c < brick.column; c++){
             isLevelDone = isLevelDone && ! bricks[r][c].status;
@@ -352,7 +355,7 @@ function levelUp(){
     }
 }
 
-// UPDATE GAME FUNCTION
+// FUNCION ACTUALIZAR EL JUEGO
 
 function update(){
     
@@ -377,7 +380,7 @@ function update(){
 
 function loop(){
 
-    // CLEAR THE CANVAS
+    // BORRAR EL CANVAS
     if(LEVEL == 1){
     ctx.drawImage(BG_IMG, 0, 0);
     }
@@ -397,38 +400,38 @@ function loop(){
 }
 loop();
 
-// SHOW GAME OVER MESSAGE
-/* SELECT ELEMENTS */
+// CONSTANTES DE MENSAJES AL TERMINAR LA PARTIDA
+
 const gameover = document.getElementById("gameover");
 const youwin = document.getElementById("youwin");
 const youlose = document.getElementById("youlose");
 const restart = document.getElementById("restart");
 
-// CLICK ON PLAY AGAIN BUTTON
+// PULSAR EN PLAY AGAIN PARA VOLVER A JUGAR
 restart.addEventListener("click", function(){
     location.reload(); // reload the page
 })
 
-// SHOW YOU WIN
+// MOSTRAR QUE HAS GANADO
 function showYouWin(){
     gameover.style.display = "block";
     youwon.style.display = "block";
 }
 
-// SHOW YOU LOSE
+// MOSTRAR QUE HAS PERDIDO
 function showYouLose(){
     gameover.style.display = "block";
     youlose.style.display = "block";
 }
 
-//botón instrucciones
+// PULSAR EL BOTON DE INSTRUCCIONES PARA ABRIRLAS
 btn_inst.onclick= () =>{
     inst.style.display = "block";
     inst.classList.toggle('show');
 }
 
 
-//button cerrar instrucciones
+// VOLVER A PULSAR EL BOTON INSTRUCCIONES PARA CERRARLAS
 close_inst.onclick= () =>{
     inst.classList.remove('show');
 }
