@@ -61,20 +61,21 @@ h1{
 
 #caja{ /*caja botones*/
     position: fixed;
-    top: 10px;
-    left: 150px;
+    top: 100px;
+    left: 170px;
     padding: 15px;
-    border: 3px solid rgb(120, 146, 230);
-    border-radius: 5px;
+    border: 3px solid rgb(37, 48, 85);
+    border-radius: 10px;
+    background-color: rgb(223, 213, 162);
 }
 button{
     padding: 10px;  
     width: 100%;
     font-weight: bold;
     font-size: 1.2em;
-    border: rgb(116, 218, 187);
+    border: rgb(60, 224, 175);
     border-radius: 3px;
-    background-color: rgb(116, 218, 187);
+    background-color: rgb(224, 60, 60);
     box-shadow: 0 4px #918d8de3;
 }
 button:active{
@@ -87,9 +88,9 @@ button[disabled]{background-color: rgb(138, 228, 223);color: #080808;}
 label{font-size: 1.2em;font-weight: bold; }
 select{
     font-weight: bold;
-    background-color: rgb(116, 218, 187);
+    background-color: rgb(60, 224, 175);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
 }
@@ -99,12 +100,12 @@ select{
     background: rgb(224, 211, 211);
     color: rgb(37, 35, 35);
     font-family: 'Times New Roman', Times, serif;
-    width: 400px;
+    width: 365px;
     padding: 20px;
     transform: translateX(-500px);
     transition: transform 1s ease-in-out;
     border-radius: 5px;
-    margin-left: 25px;
+    margin-left: 75px;
     display: none;
 }
 .manual.show{transform: translateY(230px);}
