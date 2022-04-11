@@ -2,55 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2D Breakout Game - JavScript</title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
-    
-    <style>
-        *{
-            font-family: "Germania One";
-        }
-        #sound{
-            width: 30px;
-            height : 30px;
-            cursor: pointer;
-            position: absolute;
-            top : 465px;
-            left : 15px;
-        }
-        #gameover{
-            position: absolute;
-            width : 400px;
-            height: 500px;
-            background: rgba(0,0,0,0.5);
-            display: none;
-        }
-        #youwon{
-            width: 100px;
-            position: absolute;
-            top : 200px;
-            left : 150px;
-            display: none;
-        }
-        #youlose{
-            width:400px;
-            position: absolute;
-            top: 100px;
-            left : 0px;
-            display: none;
-        }
-        #restart{
-            position: absolute;
-            top: 310px;
-            left : 155px;
-            cursor: pointer;
-            font-size: 1.25em;
-            color : #FFF;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="juego.js" defer></script>
+    <link rel="stylesheet" href="juego.css">
+    <title>Breakout</title>
 </head>
 <body>
-    <div class="sound">
-        <img src="SOUND_ON.png" alt="" id="sound">
+    <h1>BREAKOUT</h1>
+
+    <div>
+        <div id="caja">
+            <button id="btn_inst">Instrucciones</button>
+            <br><br>
+            <label for="level">Dificultad:</label>
+            <select id="level">
+                <option class="opt" value="Easy" selected>Fácil</option>
+                <option class="opt" value="Difficult">Difícil</option>
+            </select>            
+        </div>
+        <div id="man" class="manual">
+            <span id="close">&#10006;</span></i>
+            <h2>Instrucciones:</h2>
+            <p>Primero seleccione el nivel de dificultad: <strong>Fácil</strong> o <strong>Difícil</strong>.</p>
+            <p>En el modo Difícil la pelota se moverá más rápido.</p>
+            <p>Pulsa la tecla <strong>espacio [space]</strong> para empezar la partida.</p>
+            <p>Pulsa la tecla <strong>izquierda <span>&#8592;</span></strong> y<strong> derecha <span>&#8594;</span></strong> para mover la raqueta.</p>
+            <hr><p>Rompe todos los ladrillos para pasar de <strong>nivel</strong>.</p>
+            <p>Si la pelota cae perderás una <strong>vida</strong>.</p>
+            <p>El <strong>objetivo</strong> del juego es completar los tres niveles sin quedarte sin vidas.</p>
+            <hr><p><strong>¡A jugar!</strong></p>
+        </div>
     </div>
     
     <div id="gameover">
@@ -58,10 +40,8 @@
         <img src="gameover.png" alt="" id="youlose">
         <div id="restart">Play Again!</div>
     </div>
-   
-    <canvas id="breakout" width="400" height="500"></canvas>
     
-    <script src="components.js"></script>
-    <script src="game.js"></script>
+    <canvas id="canvas" width="700" height="650"></canvas>
+    
 </body>
 </html>

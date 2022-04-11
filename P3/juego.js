@@ -154,9 +154,9 @@ function Sacarbola(e) {
         ball.dy = -5;
     }
     else if(e.keyCode == 32 && level == "Difficult"){
-        ball.speed = 10;
-        ball.dx =  8 * (Math.random() * 2 - 1);
-        ball.dy = -8;
+        ball.speed = 8;
+        ball.dx =  7 * (Math.random() * 2 - 1);
+        ball.dy = -7;
     }
 }
 
@@ -343,6 +343,7 @@ function levelUp(){
         
         if(LEVEL >= MAX_LEVEL){
             showYouWin();
+            WIN.play();
             GAME_OVER = true;
             return;
         }

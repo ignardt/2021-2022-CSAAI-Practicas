@@ -1,3 +1,9 @@
+@font-face {
+    font-family: retro;
+    src: url("1up.ttf");
+}
+
+
 body{
 
     background-image: linear-gradient(to bottom left, #2424cfe8, #2db6b6);
@@ -17,9 +23,11 @@ h1{
 
     text-align: center;
     font-size: 50px;
-    font-family: 'Times New Roman', Times, serif;
     margin-top: 50px;
     font-weight: bold;
+    font-family: retro; 
+    color: white;
+
 }
 
 #gameover{
