@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="filtros.css">
+    <script src="filtros.js" defer></script>
+    <title>Filtros Imágenes</title>
+</head>
+<body>
+    <div id="cuerpo">
+        <div id="izq">
+            <p><b>IMAGEN ORIGINAL</b></p>
+            <img src="rafa.jpg" id="imagesrc">
+        </div>
+
+        <div id="der">
+            <p><b>IMAGEN MANIPULADA</b></p>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    <br>
+    <div id="imagenes">
+        <button id = "imagen_1">IMAGEN 1</button>
+        <button id = "imagen_2">IMAGEN 2</button>
+        <button id = "imagen_3">IMAGEN 3</button>
+        <button id="imagen_4">IMAGEN 4</button>
+    </div>
+
+    <div id="botones">
+        <button id="original">ORIGINAL</button>
+        <button id="color">COLORES</button>
+        <button id="gris">GRISES</button>
+        <button id = "espejo">ESPEJO</button>
+        <button id="negativo">NEGATIVO</button>
+        <button id="sepia">SEPIA</button>
+        <button id="abajo">BOCA ABAJO</button>
+    </div>
+
+    <div id="deslizadores">
+        <p><b>ROJO</b></p>
+        <input type="range" id="deslizador_R" min="0" max="255" value="255" disabled/>
+        <p id="range_value_R">255</p>
+        <p><b>VERDE</b></p>
+        <input type="range" id="deslizador_G" min="0" max="255" value="255" disabled/>
+        <p id="range_value_G">255</p>
+        <p><b>AZUL</b></p>
+        <input type="range" id="deslizador_B" min="0" max="255" value="255" disabled/>
+        <p id="range_value_B">255</p>
+    </div>
+
+</body>
+</html>

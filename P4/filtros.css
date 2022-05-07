@@ -1,0 +1,119 @@
+body {
+    background-image: url(fondo.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#cuerpo{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap; /*juntar imagenes*/
+    width: 100%;
+    overflow: hidden;
+}
+
+#izq{
+    width: 50%;
+    font-style: normal;
+    color: lightskyblue;
+    text-align: center;
+    font-family: fantasy;
+    font-weight: bold; 
+    font-size: 30px; 
+    text-shadow: -1px 0 lightslategrey, 0 1px lightslategrey, 1px 0 lightslategrey, 0 -1px lightslategrey;
+   
+}
+
+#der{
+    width: 50%;
+    font-style: normal;
+    color: lightskyblue;
+    text-align: center;
+    font-family: fantasy; 
+    font-weight: bold; 
+    font-size: 30px; 
+    text-shadow: -1px 0 lightslategrey, 0 1px lightslategrey, 1px 0 lightslategrey, 0 -1px lightslategrey;
+}
+
+#imagenes{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap; /*juntar imagenes*/
+    width: 100%;
+}
+
+#imagen_1{
+    background-color: rgb(125, 177, 224);
+    color: rgb(90, 90, 90);
+    font-weight: 900;
+    margin-left: 450px;
+}
+
+#imagen_2, #imagen_3, #imagen_4{
+    background-color: rgb(125, 177, 224);
+    color: rgb(90, 90, 90);
+    font-weight: 900;
+}
+
+#botones{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap; /*juntar imagenes*/
+    width: 100%;
+}
+
+#original{
+    margin-left: 300px;
+}
+
+button{
+    background-color: rgb(90, 90, 90);
+    background-position: center;
+    color: rgb(125, 177, 224);
+    border-radius: 10px;
+    border: 10px black;
+    text-decoration: none;
+    padding: 6px;
+    padding-left: 10px; /*relleno*/
+    padding-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 30;
+    font-size: 20px;
+    font-style: normal;
+    margin: 5px;
+}
+
+button:hover{
+    background-color: rgb(168, 229, 245);
+    color: black;
+}
+
+#deslizadores{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+    color: black;
+    text-align: center;
+    column-count: 3;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap; /*juntar imagenes*/
+    width: 100%;
+}
+
+
+#range_value_R, #range_value_G, #range_value_B{
+    margin-right: 25px;
+}
