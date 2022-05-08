@@ -8,6 +8,11 @@
     src: url("big_noodle_titling_oblique.ttf");
 }
 
+@font-face {
+    font-family: boton;
+    src: url("JMH\ Typewriter.ttf");
+}
+
 body {
     background-image: url(fondo.jpg);
     background-repeat: no-repeat;
@@ -15,7 +20,7 @@ body {
 }
 
 h1 {
-    color: rgb(207, 236, 222);
+    color: white;
     text-align: center;
     font-family: titulo cursiva;
     margin-top: 35px;
@@ -57,7 +62,7 @@ h1 {
 #imagenes{
     display: flex;
     flex-wrap: wrap; 
-    width: 126px;
+    width: 130px;
     margin-left: 250px;
 }
 
@@ -75,7 +80,7 @@ h1 {
     flex-wrap: wrap;
     width: 1231px;
     margin-left: 675px;
-    margin-top: -180px;
+    margin-top: -194px;
 }
 
 #original{
@@ -93,7 +98,7 @@ button{
     padding: 6px;
     padding-left: 10px; 
     padding-right: 10px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: boton;
     font-weight: 30;
     font-size: 20px;
     font-style: normal;
@@ -110,10 +115,9 @@ button:active {
 }
 
 #deslizadores{
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    font-style: bold;
+    font-family: 'Times New Roman', Times, serif;
     color: white;
     text-align: center;
     column-count: 3;
