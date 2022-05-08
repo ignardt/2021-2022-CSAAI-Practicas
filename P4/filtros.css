@@ -69,14 +69,11 @@ h1 {
 #imagen1,#imagen2, #imagen3, #imagen4{
     background-color: rgb(125, 204, 165);
     color: rgb(90, 90, 90);
-    font-weight: 900;
+  
 }
 
 #botones{
     display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-wrap: wrap;
     width: 1231px;
     margin-left: 675px;
     margin-top: -194px;
@@ -93,14 +90,11 @@ button{
     color: rgb(125, 204, 165);
     border-radius: 10px;
     border: 10px black;
-    text-decoration: none;
     padding: 6px;
     padding-left: 10px; 
     padding-right: 10px;
     font-family: boton;
-    font-weight: 30;
     font-size: 20px;
-    font-style: normal;
     margin: 5px;
 }
 
@@ -118,17 +112,10 @@ button:active {
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
     color: white;
-    text-align: center;
-    column-count: 3;
     padding-left: 10px;
-    padding-right: 10px;
     display: flex;
     justify-content: right;
-    align-items: center;
     margin-left: 850px;
-    justify-items: right;
-    align-items: center;
-    flex-wrap: wrap; 
     width: 900px;
 }
 
