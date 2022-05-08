@@ -1,3 +1,13 @@
+@font-face {
+    font-family: titulo;
+    src: url("big_noodle_titling.ttf");
+}
+
+@font-face {
+    font-family: titulo cursiva;
+    src: url("big_noodle_titling_oblique.ttf");
+}
+
 body {
     background-image: url(fondo.jpg);
     background-repeat: no-repeat;
@@ -5,14 +15,21 @@ body {
 }
 
 h1 {
-    color: white;
+    color: rgb(207, 236, 222);
     text-align: center;
+    font-family: titulo cursiva;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-size: 50px;   
+    text-shadow: #1e6368;
+    background-color: #1e6368;
 }
+
 #cuerpo{
     display: flex;
     justify-items: center;
     align-items: center;
-    flex-wrap: wrap; /*juntar imagenes*/
+    flex-wrap: wrap; 
     width: 100%;
     overflow: hidden;
 }
@@ -20,42 +37,33 @@ h1 {
 #left{
     width: 50%;
     font-style: normal;
-    color: lightskyblue;
+    color: rgb(125, 204, 165);
     text-align: center;
-    font-family: fantasy;
-    font-weight: bold; 
-    font-size: 30px; 
-    text-shadow: -1px 0 lightslategrey, 0 1px lightslategrey, 1px 0 lightslategrey, 0 -1px lightslategrey;
+    font-family: titulo;
+    font-size: 40px; 
+   
    
 }
 
 #right{
     width: 50%;
     font-style: normal;
-    color: lightskyblue;
+    color: rgb(125, 204, 165);
     text-align: center;
-    font-family: fantasy; 
-    font-weight: bold; 
-    font-size: 30px; 
-    text-shadow: -1px 0 lightslategrey, 0 1px lightslategrey, 1px 0 lightslategrey, 0 -1px lightslategrey;
+    font-family: titulo; 
+    font-size: 40px; 
 }
 
 #imagenes{
     display: flex;
-    flex-wrap: wrap; /*juntar imagenes*/
+    flex-wrap: wrap; 
     width: 126px;
-    margin-left: 25px;
+    margin-left: 250px;
 }
 
-#imagen1{
-    background-color: rgb(125, 177, 224);
-    color: rgb(90, 90, 90);
-    font-weight: 900;
-   
-}
 
-#imagen2, #imagen3, #imagen4{
-    background-color: rgb(125, 177, 224);
+#imagen1,#imagen2, #imagen3, #imagen4{
+    background-color: rgb(125, 204, 165);
     color: rgb(90, 90, 90);
     font-weight: 900;
 }
@@ -64,9 +72,9 @@ h1 {
     display: flex;
     justify-items: center;
     align-items: center;
-    flex-wrap: wrap; /*juntar imagenes*/
+    flex-wrap: wrap;
     width: 1231px;
-    margin-left: 650px;
+    margin-left: 675px;
     margin-top: -180px;
 }
 
@@ -78,12 +86,12 @@ h1 {
 button{
     background-color: rgb(90, 90, 90);
     background-position: center;
-    color: rgb(125, 177, 224);
+    color: rgb(125, 204, 165);
     border-radius: 10px;
     border: 10px black;
     text-decoration: none;
     padding: 6px;
-    padding-left: 10px; /*relleno*/
+    padding-left: 10px; 
     padding-right: 10px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 30;
@@ -93,8 +101,12 @@ button{
 }
 
 button:hover{
-    background-color: rgb(168, 229, 245);
-    color: black;
+    background-color: #1e6368;
+}
+
+button:active {
+
+    background-color: rgb(125, 204, 165);
 }
 
 #deslizadores{
@@ -113,7 +125,7 @@ button:hover{
     margin-left: 850px;
     justify-items: right;
     align-items: center;
-    flex-wrap: wrap; /*juntar imagenes*/
+    flex-wrap: wrap; 
     width: 900px;
 }
 
