@@ -31,10 +31,10 @@ const deslizador_gray = document.getElementById('deslizador_gray');
 
 // funcion para las diferentes imagenes
 imagen1.onclick = () => {
-    img.src="rafa.jpg";
+    img.src="alcaraz.jpg";
 }
 imagen2.onclick = () => {
-    img.src="alcaraz.jpg";
+    img.src="rafa.jpg";
 }
 imagen3.onclick = () => {
     img.src="roger.jpg";
