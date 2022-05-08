@@ -5,17 +5,17 @@ const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
 // Establecemos los distintos botones
-const imagen1 = document.getElementById('imagen_1');
-const imagen2 = document.getElementById('imagen_2');
-const imagen3 = document.getElementById('imagen_3');
-const imagen4 = document.getElementById('imagen_4');
+const img1 = document.getElementById('imagen1');
+const img2 = document.getElementById('imagen2');
+const img3 = document.getElementById('imagen3');
+const img4 = document.getElementById('imagen4');
 const original = document.getElementById('original');
 const grises = document.getElementById('gris');
 const colores = document.getElementById('color');
 const espejo = document.getElementById('espejo');
 const negativo = document.getElementById('negativo');
 const sepia = document.getElementById('sepia');
-const abajo = document.getElementById('abajo');
+const voltear = document.getElementById('voltear');
 
 // Valores deslizador
 const range_value_R = document.getElementById('range_value_R');
@@ -30,40 +30,37 @@ const deslizador_B = document.getElementById('deslizador_B');
 const deslizador_gray = document.getElementById('deslizador_gray');
 
 // funcion para las diferentes imagenes
-imagen1.onclick = () => {
+img1.onclick = () => {
     img.src="alcaraz.jpg";
 }
-imagen2.onclick = () => {
+img2.onclick = () => {
     img.src="rafa.jpg";
 }
-imagen3.onclick = () => {
+img3.onclick = () => {
     img.src="roger.jpg";
 }
-imagen4.onclick = () => {
+img4.onclick = () => {
   img.src="monfils.jpg";
 }
 
 //-- Función de retrollamada de imagen cargada
-//-- La imagen no se carga instantaneamente, sino que
-//-- lleva un tiempo. Sólo podemos acceder a ella una vez
-//-- que esté totalmente cargada
+
 img.onload = function () {
 
-  //-- Se establece como tamaño del canvas el mismo
-  //-- que el de la imagen original
+  
+  //-- El tamaño del canvas será igual que el de la imagen
+
   canvas.width = img.width;
   canvas.height = img.height;
 
   //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
+
   ctx.drawImage(img, 0,0);
 };
 
 
 function colors(){
 
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
   ctx.drawImage(img, 0,0);
 
   //Obtener la imagen del canvas en pixeles
@@ -107,14 +104,16 @@ deslizador_B.oninput = () => {
   colors();
 }
 
-//funcion habilitar deslizadores
+//  Habilitar deslizadores
+
 function hab (){
   deslizador_R.disabled = false;
   deslizador_G.disabled = false;
   deslizador_B.disabled = false;
 }
 
-//funcion deshabilitar deslizadores
+//  Deshabilitar deslizadores
+
 function des (){
   deslizador_R.disabled = true;
   deslizador_G.disabled = true;
@@ -141,14 +140,14 @@ grises.onclick = () => {
   ctx.putImageData(imgData, 0, 0);
 }
 
-//boton imagen original
+//  boton imagen original
 original.onclick = () => {
   des();
   img.src = img.src;
   ctx.drawImage(img, 0, 0);
 }
 
-//boton colores
+//  boton colores
 colores.onclick = () => {
   hab();
   ctx.drawImage(img, 0,0);
@@ -161,7 +160,8 @@ colores.onclick = () => {
 
 }
 
-//boton espejo
+//  boton espejo
+
 espejo.onclick =() => {
   des();
   ctx.drawImage(img, 0,0);
@@ -170,7 +170,8 @@ espejo.onclick =() => {
   ctx.drawImage(img, 0, 0);
 }
 
-//boton negativo
+//  boton negativo
+
 negativo.onclick = () =>{
   des();
   ctx.drawImage(img, 0, 0);
@@ -189,19 +190,18 @@ negativo.onclick = () =>{
   ctx.putImageData(imgData, 0, 0);
 }
 
-//boton sepia
+//  boton sepia
+
 sepia.onclick = () => {
   des();
-  //-- Obtener la imagen del canvas en pixeles
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  //-- Obtener el array con todos los píxeles
   let data = imgData.data
   for (var i = 0; i < data.length; i++) {
     var R = data[i* 4];
     var G = data[i*4 + 1];
     var B = data[i*4 + 2];
 
-    //Sepia
+    //Filtro Sepia
     data[i*4] = (R * .393) + (G* .769) + (B * .189);
     data[i*4 +1] = (R * .349) + (G* .686) + (B * .168);
     data[i*4 +2] = (R * .272) + (G* .534) + (B * .131);
@@ -210,8 +210,9 @@ sepia.onclick = () => {
   ctx.putImageData(imgData, 0, 0);
 }
 
-//boton boca abajo
-abajo.onclick = () =>{
+//  boton voltear
+
+voltear.onclick = () =>{
   des();
   ctx.drawImage(img, 0,0);
   ctx.translate(0,img.height);

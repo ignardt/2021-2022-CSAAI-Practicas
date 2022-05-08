@@ -17,7 +17,7 @@ h1 {
     overflow: hidden;
 }
 
-#izq{
+#left{
     width: 50%;
     font-style: normal;
     color: lightskyblue;
@@ -29,7 +29,7 @@ h1 {
    
 }
 
-#der{
+#right{
     width: 50%;
     font-style: normal;
     color: lightskyblue;
@@ -47,14 +47,14 @@ h1 {
     margin-left: 25px;
 }
 
-#imagen_1{
+#imagen1{
     background-color: rgb(125, 177, 224);
     color: rgb(90, 90, 90);
     font-weight: 900;
    
 }
 
-#imagen_2, #imagen_3, #imagen_4{
+#imagen2, #imagen3, #imagen4{
     background-color: rgb(125, 177, 224);
     color: rgb(90, 90, 90);
     font-weight: 900;
@@ -65,13 +65,14 @@ h1 {
     justify-items: center;
     align-items: center;
     flex-wrap: wrap; /*juntar imagenes*/
-    width: 1070px;
+    width: 1231px;
     margin-left: 650px;
     margin-top: -180px;
 }
 
 #original{
-    margin-right: 50px;
+    margin-right: 380px;
+    margin-left: -70px;
 }
 
 button{
@@ -107,13 +108,13 @@ button:hover{
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    margin-left: 5px;
-    display: flex;
-    justify-items: center;
+    margin-left: 850px;
+    justify-items: right;
     align-items: center;
     flex-wrap: wrap; /*juntar imagenes*/
+    width: 900px;
 }
 
 
